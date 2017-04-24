@@ -1,0 +1,48 @@
+body {
+  background: black;
+  margin: 0;
+}
+
+#rocketDiv {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  background: black;
+  background-image: url('img/star1.jpg'), url('img/star0.jpg');
+  background-position: 120% 70px, 0px 0px;
+  background-repeat: repeat-x;
+  background-size: cover;
+  animation: animateBackground linear 50s infinite;
+}
+
+.rocket {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+}
+
+.rocket-fade {
+  opacity: 0;
+  animation: fadeAnimate 5s linear infinite;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeAnimate {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes animateBackground {
+  from { background-position: 120% 70px, 0px 0px; }
+  to { background-position: -20% 70px, -1000px 0px; }
+}
