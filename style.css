@@ -3,16 +3,75 @@ body {
   margin: 0;
 }
 
-#rocketDiv {
+#starsLayer {
   width: 100%;
   height: 100vh;
+  padding: 0;
   margin: 0 auto;
   background: black;
-  background-image: url('img/star1.jpg'), url('img/star0.jpg');
+  background-image: url('img/star0.jpg');
   background-position: 120% 70px, 0px 0px;
   background-repeat: repeat-x;
-  background-size: cover;
-  animation: animateBackground linear 50s infinite;
+  /*background-size: cover;*/
+  animation: animateBackground linear 30s infinite forwards;
+}
+
+#planetLayer {
+  position: fixed;
+  top: 20%;
+  right: -50%;
+  animation: animatePlanet linear 100s;
+}
+
+#meteor1 {
+  position: fixed;
+  width: 150px;
+  top: 50%;
+  right: -50%;
+  animation-delay: 50s;
+  animation: animateMeteor linear 40s 2 forwards;
+}
+
+#meteor2 {
+  position: fixed;
+  width: 75px;
+  top: 20%;
+  right: -50%;
+  animation-delay: 300s;
+  animation: animateMeteor linear 25s 1 forwards;
+}
+
+#meteor3 {
+  position: fixed;
+  width: 25px;
+  top: 70%;
+  right: -50%;
+  animation-delay: 1000s;
+  animation: animateMeteor linear 10s 3 forwards;
+}
+
+#fallingStar1 {
+  position: fixed;
+  width: 25%;
+  top: 50%;
+  right: -50%;
+  animation: animateFallingStar 0.25s linear 10s 2;
+}
+
+#fallingStar2 {
+  position: fixed;
+  width: 25%;
+  top: 10%;
+  right: -50%;
+  animation: animateFallingStar 0.25s linear 30s 1;
+}
+
+#fallingStar3 {
+  position: fixed;
+  width: 25%;
+  top: 10%;
+  right: -50%;
+  animation: animateFallingStar 0.25s linear 20s 1;
 }
 
 .rocket {
@@ -43,6 +102,31 @@ body {
 }
 
 @keyframes animateBackground {
-  from { background-position: 120% 70px, 0px 0px; }
-  to { background-position: -20% 70px, -1000px 0px; }
+  0% { background-position: 120% 70px, 0px 0px; }
+  100% { background-position: -20% 70px, -1000px 0px; }
+}
+
+@keyframes animatePlanet {
+  from { right: -50%; }
+  to { right: 110%; }
+}
+
+@keyframes animateMeteor {
+  from {
+    right: -50%;
+    transform: rotate(0deg);
+  }
+  to {
+    right: 110%;
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animateFallingStar {
+  0% {
+    right: -50%;
+  }
+  100% {
+    right: 110%;
+  }
 }
