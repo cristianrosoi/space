@@ -1,19 +1,19 @@
 body {
   background: black;
   margin: 0;
+  overflow: hidden;
 }
 
 #starsLayer {
-  width: 100%;
+  width: 200%;
   height: 100vh;
   padding: 0;
   margin: 0 auto;
   background: black;
   background-image: url('img/star0.jpg');
   background-position: 120% 70px, 0px 0px;
-  background-repeat: repeat-x;
-  /*background-size: cover;*/
-  animation: animateBackground linear 30s infinite forwards;
+  background-repeat: repeat;
+  animation: animateBackground 100s linear 0s infinite forwards;
 }
 
 #planetLayer {
@@ -80,6 +80,12 @@ body {
   left: 20%;
 }
 
+#rocketLayer {
+  position: fixed;
+  top: 20%;
+  left: 20%;
+}
+
 .rocket-fade {
   opacity: 0;
   animation: fadeAnimate 5s linear infinite;
@@ -102,8 +108,9 @@ body {
 }
 
 @keyframes animateBackground {
-  0% { background-position: 120% 70px, 0px 0px; }
-  100% { background-position: -20% 70px, -1000px 0px; }
+  0% { background-position: 120% 70px, 0px 0px; opacity: 0.75; }
+  50% { opacity: 1; }
+  100% { background-position: -20% 70px, -1000px 0px; opacity: 0.75;}
 }
 
 @keyframes animatePlanet {
@@ -130,3 +137,27 @@ body {
     right: 110%;
   }
 }
+
+/* SVG ROCKET */
+#fireTop,
+#fireMiddle,
+#fireBottom {
+  animation: burn 1s linear infinite;
+}
+
+#fireGlow {
+  animation: burn 1s linear infinite;
+}
+
+@keyframes burn {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
